@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import pdf from "pdf-parse";
+import * as pdf from "pdf-parse";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
