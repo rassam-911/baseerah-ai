@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import * as pdf from "pdf-parse";
+import pdf from "pdf-parse";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -28,13 +28,11 @@ export async function POST(req: Request) {
     const buffer = Buffer.from(bytes);
 
     // استخراج النص من PDF
-
     const data = await pdf(buffer);
 
     const pdfText = data.text;
 
     // تحليل الذكاء الاصطناعي
-
     const completion = await openai.chat.completions.create({
       model: "gpt-4.1-mini",
 
