@@ -1,4 +1,6 @@
 import OpenAI from "openai";
+
+// @ts-ignore
 import pdf from "pdf-parse";
 
 const openai = new OpenAI({
@@ -23,8 +25,8 @@ export async function POST(req: Request) {
       );
     }
 
+    // تحويل الملف إلى Buffer
     const bytes = await file.arrayBuffer();
-
     const buffer = Buffer.from(bytes);
 
     // استخراج النص من PDF
